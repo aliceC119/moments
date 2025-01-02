@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Link, useHistory} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -20,23 +20,23 @@ const SignUpForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  const history = useHistory
+  const history = useHistory();
 
   
 
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/dj-rest-auth/registration/', signUpData)
-      history.push('/signin')
-    } catch(err) {
+      await axios.post('/dj-rest-auth/registration/', signUpData);
+      history.push('/signin');
+    } catch (err) {
       setErrors(err.response?.data);
     }
   };
@@ -52,7 +52,7 @@ const SignUpForm = () => {
         <Form.Label className="d-none">Username</Form.Label>
         <Form.Control
           className={styles.Input} 
-          type="email" 
+          type="text" 
           placeholder="username" 
           name="username" 
           value={username}
@@ -99,6 +99,11 @@ const SignUpForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} type="submit">
               Sign up
       </Button>
+      {errors.non_field_errors?.map((message, idx) => (
+              <Alert key={idx} variant="warning" className="mt-3">
+                {message}
+              </Alert>
+            ))}
     </Form>
 
         </Container>
