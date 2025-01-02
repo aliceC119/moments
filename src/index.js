@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
+import { CurrentUserPorovider } from './contexts/CurrentUserContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <App />
+      <CurrentUserPorovider>
+        <App />
+      </CurrentUserPorovider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
