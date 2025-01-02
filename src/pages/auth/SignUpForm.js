@@ -76,6 +76,9 @@ const SignUpForm = () => {
          />
         
       </Form.Group>
+      {errors.password1?.map((message, idx) => (
+        <Alert key={idx} variant="warning" >{message}</Alert>    
+      ))}
       
       <Form.Group className="mb-3" controlId="password2">
         <Form.Label className="d-none">Confirm password</Form.Label>
@@ -88,6 +91,9 @@ const SignUpForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.password2?.map((message, idx) => (
+        <Alert key={idx} variant="warning" >{message}</Alert>    
+      ))}
 
       <Button
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} type="submit">
