@@ -15,12 +15,53 @@ import Asset from "../../components/Assets";
 
 function PostCreateForm() {
 
+  const [postData, setPostData] = useState({
+    title: "",
+    content: "",
+    image: "",
+  });
+
+  const { title, content, image } = postData;
+
   const [errors, setErrors] = useState({});
+
+  const handleChange = (event) => {
+    setPostData({
+        ...postData,
+        [event.target.name]: event.target.value,
+    });
+  };
 
 
   const textFields = (
     <div className="text-center">
       {/* Add your form fields here */}
+      
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control 
+        type="text" 
+        name="title" 
+        value={title}
+        onChange={handleChange}
+        />
+        
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control 
+        
+        as="textarea" 
+        row={6} 
+        name="content"
+        value={content} 
+        onChange={handleChange}
+        />
+      </Form.Group>
+      
+      
+    
 
     
     
