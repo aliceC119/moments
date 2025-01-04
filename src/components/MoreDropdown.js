@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
 import styles from "../styles/MoreDropdown.module.css";
 
 // The forwardRef is important!!
@@ -15,7 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     />
   ));
 
-  export const MoreDropdown =() => {
+  export const MoreDropdown =({handleEdit}) => {
     return (
         <Dropdown className="ml-auto" drop="left">
         <Dropdown.Toggle as={ThreeDots} />
@@ -23,7 +23,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
         <Dropdown.Menu classname="text-center">
           <Dropdown.Item 
           className={styles.DropdownItem}
-          onClick={() => {}}
+          onClick={handleEdit}
           aria-label="edit"
           >
             <i className="fas fa-edit" />
