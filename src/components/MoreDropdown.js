@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from 'react-bootstrap/Drapdown'
+import Dropdown from 'react-bootstrap/Dropdown'
 import styles from "../styles/MoreDropdown.module.css";
 
 // The forwardRef is important!!
